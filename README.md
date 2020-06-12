@@ -1,1 +1,1 @@
-# database_refactor_workshop_jun_2020
+# Welcome to Database Refactor Workshop
