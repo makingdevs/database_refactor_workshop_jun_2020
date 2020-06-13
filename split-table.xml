@@ -26,5 +26,18 @@
     </rollback>
   </changeSet>
 
+  <changeSet author="neodevelop" id="202006131131-10">
+    <createTable tableName="security_info">
+      <column name="id" type="integer" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="password"      type="varchar(45)"/>
+      <column name="mothersmaiden" type="varchar(45)" />
+    </createTable>
+    <rollback>
+      <dropTable tableName="security_info"/>
+    </rollback>
+  </rollback>
+
 </databaseChangeLog>
 
