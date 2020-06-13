@@ -8,5 +8,6 @@
   <changeSet author="neodevelop"  id="202006131124-8">
     <tagDatabase  tag="version_1.0"/>
   </changeSet>
+  <include file="split-table.xml"/>
 
 </databaseChangeLog>
