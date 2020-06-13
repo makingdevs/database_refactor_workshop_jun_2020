@@ -37,9 +37,9 @@
 		<rollback>
 			<dropTable tableName="security_info"/>
 		</rollback>
-	</rollback>
+	</changeSet>
 
-	<changeSet author="neodevelop" id="202006131131-10">
+	<changeSet author="neodevelop" id="202006131131-11">
 		<createTable tableName="credit_card">
 			<column name="id" type="integer" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false"/>

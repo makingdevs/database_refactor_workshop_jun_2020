@@ -1,0 +1,52 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+	<changeSet author="neodevelop" id="202006131131-13">
+		<addColumn tableName="security_info">
+			<column name="contact_id"
+				position="2"
+				type="integer">
+			<constraints nullable="false" />
+		</column>
+		</addColumn>
+		<rollback>
+			<dropColumn columnName="contact_id"  tableName="security_info"/>
+		</rollback>
+	</changeSet>
+
+	<changeSet author="neodevelop" id="202006131131-14">
+		<addColumn tableName="credit_card">
+			<column name="contact_id"
+				afterColumn="id"
+				type="integer">
+			<constraints nullable="false" />
+		</column>
+		</addColumn>
+		<rollback>
+			<dropColumn columnName="contact_id"  tableName="credit_card"/>
+		</rollback>
+	</changeSet>
+
+	<changeSet author="neodevelop" id="202006131131-15">
+		<addForeignKeyConstraint baseColumnNames="contact_id"
+			baseTableName="security_info"
+			constraintName="fk_security_info_contact"
+			referencedColumnNames="id"
+			referencedTableName="contact"
+			validate="true"/>
+		<rollback>
+		</rollback>
+	</changeSet>
+
+	<changeSet author="neodevelop" id="202006131131-16">
+		<addForeignKeyConstraint baseColumnNames="contact_id"
+			baseTableName="credit_card"
+			constraintName="fk_credit_card_contact"
+			referencedColumnNames="id"
+			referencedTableName="contact"
+			validate="true"/>
+		<rollback>
+		</rollback>
+	</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+	<changeSet author="neodevelop" id="202006131131-17">
+		<sql>
+			insert into contact(id, gender, givenname, middleinitial, surname, streetaddress, city, state, zipcode, country, emailaddress, birthday, NationalID, Occupation) select id, gender, givenname, middleinitial, surname, streetaddress, city, state, zipcode, country, emailaddress, birthday, NationalID, Occupation from contact_ball_of_mud;
+		</sql>
+		<rollback>
+			<dropForeignKeyConstraint baseTableName="security_info"
+				constraintName="fk_security_info_contact"/>
+			<dropForeignKeyConstraint baseTableName="credit_card"
+				constraintName="fk_credit_card_contact"/>
+				truncate table contact;
+		</rollback>
+	</changeSet>
+
+	<changeSet author="neodevelop" id="202006131131-18">
+		<sql>
+			insert into security_info(id, password, mothersmaiden, contact_id) select id, password, mothersmaiden, id from contact_ball_of_mud;
+		</sql>
+		<rollback>
+			truncate table security_info;
+		</rollback>
+	</changeSet>
+
+	<changeSet author="neodevelop" id="202006131131-19">
+		<sql>
+			insert into credit_card(id, CCType, CCNumber, CVV2, CCExpires, contact_id) select id, CCType, CCNumber, CVV2, CCExpires, id from contact_ball_of_mud;
+		</sql>
+		<rollback>
+			truncate table security_info;
+		</rollback>
+	</changeSet>
+
+</databaseChangeLog>
