@@ -9,5 +9,10 @@
     <tagDatabase  tag="version_1.0"/>
   </changeSet>
   <include file="split-table.xml"/>
+  <changeSet author="neodevelop"  id="202006131131-12">
+    <tagDatabase  tag="version_1.1"/>
+  </changeSet>
+  <include file="relation-tables.xml"/>
+  <include file="migrate-data.xml"/>
 
 </databaseChangeLog>
