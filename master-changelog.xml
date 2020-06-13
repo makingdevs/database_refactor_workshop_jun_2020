@@ -4,5 +4,6 @@
   <include file="database.changelog.xml"/>
   <include file="rename-tables.xml"/>
   <include file="rename-columns.yml"/>
+  <include file="merge-columns.sql"/>
 
 </databaseChangeLog>
