@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 202006131047-4
+      author:  neodevelop
+      changes:
+      - renameColumn:
+          columnDataType: int
+          newColumnName: id
+          oldColumnName: invid
+          tableName:  invoice
+
+  - changeSet:
+      id: 202006131047-5
+      author:  neodevelop
+      changes:
+      - renameColumn:
+          columnDataType: varchar(75)
+          newColumnName: invoice_number
+          oldColumnName: invnumber
+          tableName:  invoice
+
+  - changeSet:
+      id: 202006131047-6
+      author:  neodevelop
+      changes:
+      - renameColumn:
+          columnDataType: datetime
+          newColumnName: date_created
+          oldColumnName: datetimecreated
+          tableName:  invoice

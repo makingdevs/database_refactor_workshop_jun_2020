@@ -3,5 +3,6 @@
 
   <include file="database.changelog.xml"/>
   <include file="rename-tables.xml"/>
+  <include file="rename-columns.yml"/>
 
 </databaseChangeLog>
