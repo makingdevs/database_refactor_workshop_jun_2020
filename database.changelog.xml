@@ -1,0 +1,82 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="makingdevs (generated)" id="1592060585784-1">
+        <createTable tableName="contact_ball_of_mud">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="number" type="BIGINT">
+                <constraints unique="true"/>
+            </column>
+            <column name="gender" type="VARCHAR(45)"/>
+            <column name="givenname" type="VARCHAR(45)"/>
+            <column name="middleinitial" type="VARCHAR(45)"/>
+            <column name="surname" type="VARCHAR(45)"/>
+            <column name="streetaddress" type="VARCHAR(45)"/>
+            <column name="city" type="VARCHAR(45)"/>
+            <column name="state" type="VARCHAR(45)"/>
+            <column name="zipcode" type="VARCHAR(45)"/>
+            <column name="country" type="VARCHAR(45)"/>
+            <column name="emailaddress" type="VARCHAR(45)"/>
+            <column name="password" type="VARCHAR(45)"/>
+            <column name="telephonenumber" type="VARCHAR(45)"/>
+            <column name="mothersmaiden" type="VARCHAR(45)"/>
+            <column name="birthday" type="datetime"/>
+            <column name="CCType" type="VARCHAR(45)"/>
+            <column name="CCNumber" type="VARCHAR(45)"/>
+            <column name="CVV2" type="VARCHAR(5)"/>
+            <column name="CCExpires" type="datetime"/>
+            <column name="NationalID" type="VARCHAR(45)"/>
+            <column name="UPS" type="VARCHAR(45)"/>
+            <column name="Occupation" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="makingdevs (generated)" id="1592060585784-2">
+        <createTable tableName="inv">
+            <column name="invid" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="invnumber" type="VARCHAR(75)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datetimecreated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="udtime" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uddate" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="terms" type="VARCHAR(15)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="makingdevs (generated)" id="1592060585784-3">
+        <createTable tableName="lidetail">
+            <column name="invoice_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="row_number" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="makingdevs (generated)" id="1592060585784-4">
+        <createTable tableName="lineitem">
+            <column name="invid" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="rownum" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="pn" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qty" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL(10, 2)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
