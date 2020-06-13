@@ -2,42 +2,57 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
 
 
-  <changeSet author="neodevelop" id="202006131131-9">
-    <createTable tableName="contact">
-      <column name="id" type="integer" autoIncrement="true">
-        <constraints primaryKey="true" nullable="false"/>
-      </column>
-      <column name="gender"        type="varchar(45)" />
-      <column name="givenname"     type="varchar(45)" />
-      <column name="middleinitial" type="varchar(45)" />
-      <column name="surname"       type="varchar(45)" />
-      <column name="streetaddress" type="varchar(45)" />
-      <column name="city"          type="varchar(45)" />
-      <column name="state"         type="varchar(45)" />
-      <column name="zipcode"       type="varchar(45)" />
-      <column name="country"       type="varchar(45)" />
-      <column name="emailaddress"  type="varchar(45)" />
-      <column name="birthday"      type="datetime   " />
-      <column name="NationalID"    type="varchar(45)" />
-      <column name="Occupation"    type="varchar(45)" />
-    </createTable>
-    <rollback>
-      <dropTable tableName="contact"/>
-    </rollback>
-  </changeSet>
+	<changeSet author="neodevelop" id="202006131131-9">
+		<createTable tableName="contact">
+			<column name="id" type="integer" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="gender"        type="varchar(45)" />
+			<column name="givenname"     type="varchar(45)" />
+			<column name="middleinitial" type="varchar(45)" />
+			<column name="surname"       type="varchar(45)" />
+			<column name="streetaddress" type="varchar(45)" />
+			<column name="city"          type="varchar(45)" />
+			<column name="state"         type="varchar(45)" />
+			<column name="zipcode"       type="varchar(45)" />
+			<column name="country"       type="varchar(45)" />
+			<column name="emailaddress"  type="varchar(45)" />
+			<column name="birthday"      type="datetime   " />
+			<column name="NationalID"    type="varchar(45)" />
+			<column name="Occupation"    type="varchar(45)" />
+		</createTable>
+		<rollback>
+			<dropTable tableName="contact"/>
+		</rollback>
+	</changeSet>
 
-  <changeSet author="neodevelop" id="202006131131-10">
-    <createTable tableName="security_info">
-      <column name="id" type="integer" autoIncrement="true">
-        <constraints primaryKey="true" nullable="false"/>
-      </column>
-      <column name="password"      type="varchar(45)"/>
-      <column name="mothersmaiden" type="varchar(45)" />
-    </createTable>
-    <rollback>
-      <dropTable tableName="security_info"/>
-    </rollback>
-  </rollback>
+	<changeSet author="neodevelop" id="202006131131-10">
+		<createTable tableName="security_info">
+			<column name="id" type="integer" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="password"      type="varchar(45)"/>
+			<column name="mothersmaiden" type="varchar(45)" />
+		</createTable>
+		<rollback>
+			<dropTable tableName="security_info"/>
+		</rollback>
+	</rollback>
+
+	<changeSet author="neodevelop" id="202006131131-10">
+		<createTable tableName="credit_card">
+			<column name="id" type="integer" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="CCType"    type="varchar(45)"/>
+			<column name="CCNumber"  type="varchar(45)" />
+			<column name="CVV2"      type="varchar(5)" />
+			<column name="CCExpires" type="datetime" />
+		</createTable>
+		<rollback>
+			<dropTable tableName="credit_card"/>
+		</rollback>
+	</changeSet>
 
 </databaseChangeLog>
 
